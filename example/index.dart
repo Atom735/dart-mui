@@ -8,6 +8,7 @@ import 'package:react/react.dart' as react;
 import 'package:react/react_client.dart';
 import 'package:react/react_client/react_interop.dart';
 import 'package:react/react_dom.dart' as react_dom;
+import 'package:dart_mui/dart_mui.dart';
 
 main() {
   var content = IndexComponent({});
@@ -110,38 +111,6 @@ class SimpleCustomComponent {
   external String getFoo();
 }
 
-/// JS interop wrapper class for Material UI
-/// getting us access to the react classes
-@JS()
-class MaterialUI {
-  external static ReactClass get Button;
-  external static ReactClass get CssBaseline;
-  external static ReactClass get Dialog;
-  external static ReactClass get DialogActions;
-  external static ReactClass get DialogContent;
-  external static ReactClass get DialogContentText;
-  external static ReactClass get DialogTitle;
-  external static ReactClass get Icon;
-  external static ReactClass get MuiThemeProvider;
-  external static ReactClass get Typography;
-}
-
 /// JS Interop to get theme config we setup in JS
 @JS()
 external Map get theme;
-
-// All the Material UI components converted to dart Components
-final Button = new ReactJsComponentFactoryProxy(MaterialUI.Button);
-final CssBaseline = new ReactJsComponentFactoryProxy(MaterialUI.CssBaseline);
-final Dialog = new ReactJsComponentFactoryProxy(MaterialUI.Dialog);
-final DialogActions =
-    new ReactJsComponentFactoryProxy(MaterialUI.DialogActions);
-final DialogContent =
-    new ReactJsComponentFactoryProxy(MaterialUI.DialogContent);
-final DialogContentText =
-    new ReactJsComponentFactoryProxy(MaterialUI.DialogContentText);
-final DialogTitle = new ReactJsComponentFactoryProxy(MaterialUI.DialogTitle);
-final Icon = new ReactJsComponentFactoryProxy(MaterialUI.Icon);
-final MuiThemeProvider =
-    new ReactJsComponentFactoryProxy(MaterialUI.MuiThemeProvider);
-final Typography = new ReactJsComponentFactoryProxy(MaterialUI.Typography);
